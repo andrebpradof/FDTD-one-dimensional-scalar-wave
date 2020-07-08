@@ -93,7 +93,7 @@ function exer_2_11(){
     for (let index = 0; index <= 20; index++) {
         intervalo_x_b[index] = index;
     }
-    gera_grafico("Exercicio 2.11", nome_x, 3,intervalo_x_a, funcoes_a,false, "exer-2-11-a", true);
-    gera_grafico("Exercicio 2.11", nome_x, 3,intervalo_x_b, funcoes_b,false, "exer-2-11-b", true);
+    gera_grafico("Exercicio 2.11", nome_x, 3,intervalo_x_a, funcoes_a,false, "exer-2-11-a", true, false);
+    gera_grafico("Exercicio 2.11", nome_x, 3,intervalo_x_b, funcoes_b,false, "exer-2-11-b", true, false);
 
 }

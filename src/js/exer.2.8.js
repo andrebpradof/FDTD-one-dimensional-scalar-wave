@@ -19,8 +19,8 @@ function exer_2_8(S0,S1, s) {
         {
             nome: "S = "+S0,
             nome_eixo: "Função da onda",
-            cor: "#4682B4",
-            borda: "#20B2AA",
+            cor: "#007bf5",
+            borda: "#007bf5",
             dados: u_1[parseInt(150/S0)],
             tracado: [0,0],
             limites:[-0.5 ,1.5],
@@ -30,8 +30,8 @@ function exer_2_8(S0,S1, s) {
         {
             nome: "S = "+S1,
             nome_eixo: "",
-            cor:"#FF0000",
-            borda: "#FF0000",
+            cor:"#d11507",
+            borda: "#d11507",
             dados: u_2[parseInt(150/S1)],
             tracado: [5,5],
             limites:[-0.5 ,1.5],
@@ -47,5 +47,5 @@ function exer_2_8(S0,S1, s) {
     for (let index = 0; index <= I; index++) {
         intervalo_x[index] = index;
     }
-    gera_grafico("Exercicio 2.8", nome_x, 2,intervalo_x, funcoes,false, "exer-2-8", true);
+    gera_grafico("Exercicio 2.8", nome_x, 2,intervalo_x, funcoes,false, "exer-2-8", true, false);
 }

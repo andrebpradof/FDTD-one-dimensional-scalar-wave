@@ -46,5 +46,5 @@ function exer_2_9(S0,S1, s){
     for (let index = 0; index <= I; index++) {
         intervalo_x[index] = index;
     }
-    gera_grafico("Exercicio 2.9", nome_x, 2,intervalo_x, funcoes,false, "exer-2-9", true);
+    gera_grafico("Exercicio 2.9", nome_x, 2,intervalo_x, funcoes,false, "exer-2-9", true, false);
 }

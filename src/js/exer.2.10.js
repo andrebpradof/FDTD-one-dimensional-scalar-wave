@@ -13,6 +13,7 @@ function exer_2_10(){
 
     var funcoes = [
         {
+            nome: "ARRUMAR",
             nome_eixo: "Função da onda",
             cor: window.chartColors.red,
             borda: window.chartColors.red,
@@ -31,6 +32,6 @@ function exer_2_10(){
     for (let index = 0; index <= I; index++) {
         intervalo_x[index] = index;
     }
-    gera_grafico("Exercicio 2.10", nome_x, 1,intervalo_x, funcoes,false, "exer-2-10", false);
+    gera_grafico("Exercicio 2.10", nome_x, 1,intervalo_x, funcoes,false, "exer-2-10", false, false);
 
 }

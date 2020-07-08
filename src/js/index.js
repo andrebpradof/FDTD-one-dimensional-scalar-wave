@@ -10,7 +10,7 @@ function makeArr(startValue, stopValue, cardinality) {
       return arr;
 }
 
-function gera_grafico(titulo,titulo_x, n_funcoes, dados_x, dados_y,zero, elemento_id, scale_on){
+function gera_grafico(titulo,titulo_x, n_funcoes, dados_x, dados_y,zero, elemento_id, scale_on, dual_line){
 
     var dados = [];
     if(scale_on){
@@ -39,6 +39,48 @@ function gera_grafico(titulo,titulo_x, n_funcoes, dados_x, dados_y,zero, element
                 borderDash: dados_y[i]["tracado"],
             }
             
+        }
+    }
+    else if(dual_line){
+        var yAxes_dados = [];
+
+        yAxes_dados = [{
+            id: dados_y[0]['id'],
+            position: dados_y[0]['posicao'],
+            ticks: {
+                max: dados_y[0]["limites"][1],
+                min: dados_y[0]["limites"][0]
+            },
+            type: dados_y[0]["tipo"],
+            scaleLabel: {
+                display: true,
+                labelString: dados_y[0]["nome_eixo"]
+            }
+        },
+        {
+            id: dados_y[4]['id'],
+            position: dados_y[4]['posicao'],
+            ticks: {
+                max: dados_y[4]["limites"][4],
+                min: dados_y[4]["limites"][0]
+            },
+            type: dados_y[4]["tipo"],
+            scaleLabel: {
+                display: true,
+                labelString: dados_y[4]["nome_eixo"]
+            }
+        }];
+        for (var i = 0; i <= n_funcoes-1; i++) {
+           
+            dados[i] = {
+                label: dados_y[i]["nome"],
+                backgroundColor: dados_y[i]["cor"],
+                borderColor: dados_y[i]["borda"],
+                data: dados_y[i]["dados"],
+                fill: false,
+                yAxisID: dados_y[i]['id'],
+                borderDash: dados_y[i]["tracado"],
+            }
         }
     }
     else{
@@ -98,12 +140,30 @@ function gera_grafico(titulo,titulo_x, n_funcoes, dados_x, dados_y,zero, element
                 line: {
                     tension: 0
                 }
-			},
+            },
+            annotation: {
+                annotations: [
+                  {
+                    drawTime: "afterDatasetsDraw",
+                    type: "line",
+                    mode: "vertical",
+                    value: 50,
+                    borderWidth: 5,
+                    borderColor: "red",
+                    label: {
+                      content: "TODAY",
+                      enabled: true,
+                      position: "top"
+                    }
+                  }
+                ]
+            },
 
 			scales: {
 				xAxes: [{
                     display: true,
 					ticks: {
+                        maxTicksLimit: 20,
                         callback: function (value, index, values) {
                             if(Number.isInteger(value)){
                                 return value;
@@ -130,6 +190,7 @@ window.onload = function() {
     exer_2_4(1/math.sqrt(2), 100);
     exer_2_5(1/2, 100);
     exer_2_6(1/math.sqrt(2), 100);
+    exer_2_7(100);
     exer_2_8(0.5,1,v);
     exer_2_9(0.5,1,f_gauss);
     exer_2_10();

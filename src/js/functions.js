@@ -6,6 +6,32 @@ function zeta(N, S){
     return 1+(1/(S**2))*(math.cos((2*math.pi*S)/N)-1)
 }
 
+function calc_parte1(n, S){
+    var k = 0;
+	var tau = 0;
+	var N = makeArr(1, 10, n);
+	var at = Array.apply(null, Array(n)).map(Number.prototype.valueOf, 0);
+	var Vp = Array.apply(null, Array(n)).map(Number.prototype.valueOf, 0);
+
+	for (var i = 0; i <= n; i++) {
+		if (N[i] <= N_transition(S)) {
+			k = math.pi;
+			tau = zeta(N[i], S);
+			at[i] = -math.log(-tau - math.sqrt((tau ** 2) - 1));
+		}
+		else {
+			k = math.acos(zeta(N[i], S))
+		}
+		Vp[i] = (2 * math.pi) / (N[i] * k);
+    }
+
+    var dados = [];
+    dados[0] = Vp;
+    dados[1] = at;
+    
+    return dados;
+}
+
 function fdtd(S, I, N, s){
     var u = Array.apply(null, Array(N)).map(Number.prototype.valueOf, 0);
     for(var j = 0; j < N; j++){

@@ -27,5 +27,5 @@ function exer_2_6(S, n) {
     ];
     var nome_x = "Densidade de amostragem da grade (pontos por comprimento de onda do espaço livre)";
 
-    gera_grafico("Exercicio 2.6", nome_x, 1, N, funcoes,true, "exer-2-6", false);
+    gera_grafico("Exercicio 2.6", nome_x, 1, N, funcoes,true, "exer-2-6", false, false);
 }
