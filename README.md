@@ -8,7 +8,6 @@ Mateus Fernandes Doimo - Nº USP: 10691971</br>
 <p>Prof. Dr. Leonardo André Ambrosio</p>
 <hr>
 
-<hr>
 <h3>Descrição:</h3>
 <p>O objetivo deste Projeto 2 é trabalhar com a equação de onda escalar como dada em e ganhar familiaridade com o método FDTD envolvendo equações diferenciais de segunda ordem.</p>
 <hr>
