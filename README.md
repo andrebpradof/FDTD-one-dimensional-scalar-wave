@@ -15,7 +15,7 @@ Mateus Fernandes Doimo - Nº USP: 10691971</br>
 <P>Os resultados podem ser visualizados no link abaixo:<p>
 <b>:chart_with_upwards_trend:</b> <a href="http://174.138.40.251/sel0612-ondas/">http://174.138.40.251/sel0612-ondas/</a><br><br>
 
-<p>Os códigos de cada exercícos está localizado na pasta informada abaixo. Também foi criado um arquivo com funções que são usadas em diversos exercícios, por exemplo o algortimo FDTD.</p>
+<p>Os códigos de cada exercícos estão localizados na pasta informada abaixo. Também foi criado um arquivo com funções que são usadas em diversos exercícios, por exemplo o algortimo FDTD.</p>
 <b>:open_file_folder:</b> <a href="https://github.com/andrebpradof/FDTD-one-dimensional-scalar-wave/tree/master/src/js">Códigos dos exercícos</a><br><br>
 
 <h3>Referências:</h3>
