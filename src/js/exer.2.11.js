@@ -4,6 +4,7 @@ function exer_2_11(){
     var S0 = 1;
     var S1 = 1.075;
 
+    // Fator de estabilidade Courant
     var S = function(n){
         if(n != 90)
             return S0;
@@ -11,6 +12,7 @@ function exer_2_11(){
             return S1;
     }
     
+    // Pulso
      var s = function(n,S){
         if (n > 74)
             return 0;
@@ -18,8 +20,10 @@ function exer_2_11(){
             return math.exp(-((((n-60)/(5))**2)));
     }
     
+    // Calculo FDTD
     var u = fdtd(S,I,N+1,s);
     
+    // Configuracoes dos graficos
     var funcoes_a = [
         {
             nome: "n = 200",
@@ -68,6 +72,7 @@ function exer_2_11(){
         }
     ];
 
+    // Configuracao do eixo x
     var nome_x = "Coordenada i da grade";
 
     var intervalo_x_a = [];
@@ -81,7 +86,8 @@ function exer_2_11(){
         intervalo_x_b[cont] = index;
         cont++;
     }
-    gera_grafico("Exercicio 2.11-a", nome_x, 2,intervalo_x_a, funcoes_a,false, "exer-2-11-a", true, false,false);
-    gera_grafico("Exercicio 2.11-b", nome_x, 2,intervalo_x_b, funcoes_b,false, "exer-2-11-b", true, false,false);
+    // Gerar o grafico
+    gera_grafico("(a)", nome_x, 2,intervalo_x_a, funcoes_a,false, "exer-2-11-a", true, false,false);
+    gera_grafico("(b)", nome_x, 2,intervalo_x_b, funcoes_b,false, "exer-2-11-b", true, false,false);
     
 }

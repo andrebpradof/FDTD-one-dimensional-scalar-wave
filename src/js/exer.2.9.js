@@ -1,4 +1,6 @@
 function exer_2_9(){
+
+    // Fator de estabilidade Courant
     var S = function (i) {
         if(i < 140)
             return 1;
@@ -9,11 +11,13 @@ function exer_2_9(){
     I = 200;
     N = 400;
 
-    var u = fdtd(S,I,N,f_gauss);
+    // Calculo FDTD
+    var u = fdtd(S,I,N,p_gauss);
 
+    // Configuracoe dos grafico
     var funcoes = [
         {
-            nome: "",
+            nome: "Função da onda",
             nome_eixo: "Função da onda u(i)",
             cor: "#d11507",
             borda: "#d11507",
@@ -26,6 +30,7 @@ function exer_2_9(){
         }
     ];
 
+    // Configuracao do eixo x
     var nome_x = "Coordenada i da grade";
 
     var intervalo_x = [];
@@ -33,6 +38,7 @@ function exer_2_9(){
     for (let index = 0; index <= I; index++) {
         intervalo_x[index] = index;
     }
-    gera_grafico("Exercicio 2.9", nome_x, 1,intervalo_x, funcoes,false, "exer-2-9", false, false,true);
+    // Gerar o grafico
+    gera_grafico("", nome_x, 1,intervalo_x, funcoes,false, "exer-2-9", false, false,true);
 
 }

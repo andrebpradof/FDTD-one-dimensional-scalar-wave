@@ -1,20 +1,23 @@
-function exer_2_4(S, n) {
-	var k = 0;
-	var tau = 0;
-	var N = makeArr(1, 10, n);
-    var dados = calcVelocidadeAtenuacao(n,S,N);
+function exer_2_4() {
 
-    var Vp = dados[0];
-    var at = dados[1];
+    var S =1/math.sqrt(2); // Fator de estabilidade Courant
+    var n = 100;
 
+    var N = makeArr(1, 10, n);
+    // Calculo da velocidade de fase e da constante de atenuacao
+    var dados = calcVelocidadeAtenuacao(n,S,N); 
 
+    var Vp = dados[0]; // Velocidade de fase
+    var atenuacao = dados[1]; // Constante de atenuacao
+
+    // Configuracoes do grafico
     var funcoes = [
         {
             nome: "Constante de atenuação",
             nome_eixo: "Constante de atenuação (nepers / célula da grade)",
             cor: window.chartColors.red,
             borda: window.chartColors.red,
-            dados: at,
+            dados: atenuacao,
             tracado: [5,5],
             limites:[0 ,6],
             posicao: 'left',
@@ -32,8 +35,11 @@ function exer_2_4(S, n) {
             tipo: 'linear',
         }
     ];
+
+    // Configuracao do eixo x
     var nome_x = "Densidade de amostragem da grade (pontos por comprimento de onda do espaço livre)";
 
-    gera_grafico("Exercicio 2.4", nome_x, 2, N, funcoes,false, "exer-2-4", false, false,false);
+    // Gerar o grafico
+    gera_grafico("", nome_x, 2, N, funcoes,false, "exer-2-4", false, false,false);
 
 }

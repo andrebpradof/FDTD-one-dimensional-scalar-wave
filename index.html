@@ -1,17 +1,402 @@
-<!DOCTYPE html>
+<!--
+# //////////////////////////////////////////////////////////////////
+# //  SEL0612 - Ondas eletromagneticas  (2020)                    //
+# //  Trabalho 02 - A equação de onda escalar                     //
+# //                                                              //
+# //  Alunos:                                                     //
+# //  André Baconcelo Prado Furlanetti - Nº USP: 10748305         //
+# //  Diego da Silva Parra             - Nº USP: 10716550         //
+# //  Mateus Fernandes Doimo           - Nº USP: 10691971         //
+# //////////////////////////////////////////////////////////////////
+-->	
 <html lang="pt-br">
 <head>
-	<meta charset="utf-8"/>
-	<title>Ondas eletomagnéticas</title>
-	<!-- Bibliotecas CSS -->
-	<link rel="stylesheet" type="text/css" href="libs/css/Chart.min.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Ondas eletromagnéticas - SEL0612</title>
+	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
+	<link rel="icon" href="libs/assets/img/icon.ico" type="image/x-icon"/>
+	<!-- Fontes e icones -->
+	<script src="libs/assets/js/plugin/webfont/webfont.min.js"></script>
+	<script>
+		WebFont.load({
+			google: {"families":["Lato:300,400,700,900"]},
+			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands", "simple-line-icons"], urls: ['libs/assets/css/fonts.min.css']},
+			active: function() {
+				sessionStorage.fonts = true;
+			}
+		});
+	</script>
 
-	<!-- Bibliotecas JS -->
+	<!-- CSS -->
+	<link rel="stylesheet" href="libs/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/assets/css/atlantis.min.css">
+	<link rel="stylesheet" href="libs/css/config.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main-header">
+			<!-- Header -->
+			<div class="logo-header" data-background-color="blue">
+				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon">
+						<i class="icon-menu"></i>
+					</span>
+				</button>
+				<div class="nav-toggle ml-auto">
+					<button class="btn btn-toggle toggle-sidebar">
+						<i class="icon-menu"></i>
+					</button>
+				</div>
+			</div>
+			<!-- Header -->
+
+			<!-- Navbar Header -->
+			<nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
+				
+				<div class="container-fluid">
+					<ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+						<li class="nav-item toggle-nav-search hidden-caret">
+							<a class="nav-link" data-toggle="collapse" href="#search-nav" role="button" aria-expanded="false" aria-controls="search-nav">
+								<i class="fa fa-search"></i>
+							</a>
+						</li>
+	
+					</ul>
+				</div>
+			</nav>
+			<!-- End Navbar -->
+		</div>
+
+		<!-- Menu -->
+		<div class="sidebar sidebar-style-2">			
+			<div class="sidebar-wrapper scrollbar scrollbar-inner">
+				<div class="sidebar-content">
+					<ul class="nav nav-primary">
+						<li class="nav-item active">
+							<a class="link-content" data-toggle="collapse" href="#c-home" class="collapsed" aria-expanded="false">
+								<i class="fas fa-info-circle"></i>
+								<p>Sobre</p>
+							</a>
+						</li>
+						<li class="nav-section">
+							<span class="sidebar-mini-icon">
+								<i class="fa fa-ellipsis-h"></i>
+							</span>
+							<h4 class="text-section">Projetos</h4>
+						</li>
+						<li class="nav-item">
+							<a data-toggle="collapse" href="#base" aria-expanded="true">
+								<i class="fas fa-layer-group"></i>
+								<p>Projeto 2</p>
+								<span class="caret"></span>
+							</a>
+							<div class="collapse show" id="base">
+								<ul class="nav nav-collapse">
+									<li>
+										<a class="link-content" href="#c-2-4">
+											<span class="sub-item">Exercício 2.4</span>
+										</a>
+										<a class="link-content" href="#c-2-5">
+											<span class="sub-item">Exercício 2.5</span>
+										</a>
+										<a class="link-content" href="#c-2-6">
+											<span class="sub-item">Exercício 2.6</span>
+										</a>
+										<a class="link-content" href="#c-2-7">
+											<span class="sub-item">Exercício 2.7</span>
+										</a>
+										<a class="link-content" href="#c-2-8">
+											<span class="sub-item">Exercício 2.8</span>
+										</a>
+										<a class="link-content" href="#c-2-9">
+											<span class="sub-item">Exercício 2.9</span>
+										</a>
+										<a class="link-content" href="#c-2-10">
+											<span class="sub-item">Exercício 2.10</span>
+										</a>
+										<a class="link-content" href="#c-2-11">
+											<span class="sub-item">Exercício 2.11</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<a href="https://github.com/andrebpradof/FDTD-one-dimensional-scalar-wave">
+								<i class="fab fa-github"></i>
+								<p>Github</p>
+							</a>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- End Sidebar -->
+
+		<div class="main-panel">
+			<div id="c-inicio" class="content">
+				<div class="panel-header bg-primary-gradient">
+					<div class="page-inner py-5">
+						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
+							<div>
+								<h1 class="text-white fw-bold"><i class="fas fa-signature"></i> Projeto 2</h1>
+								<h5 class="text-white op-7 pb-2 ">SEL0612 - Ondas eletromagnéticas</h5>
+							</div>
+					</div>
+					</div>
+				</div>
+				<!-- ///////-->
+				<div class="page-inner mt--5 box-cont box-ativo" id="c-home">
+					<div class="row mt--2">
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-header">
+									<div class="card-title">Sobre o projeto</div>
+								</div>
+								<div class="card-body">
+									<h3><b>A equação de onda escalar</b></h3>
+									<p>O objetivo deste Projeto 2 é trabalhar com a equação de onda escalar como dada em e ganhar familiaridade com o método FDTD envolvendo equações diferenciais de segunda ordem.</p>		
+									<br>
+									<h3><b>Grupo:</b></h3>
+									<p>
+										André Baconcelo Prado Furlanetti - Nº USP: 10748305<br>
+										Diego da Silva Parra - Nº USP: 10716550<br>
+										Mateus Fernandes Doimo - Nº USP: 10691971<br>
+									</p>
+									<br>
+									<h3><b>Atividades:</b></h3>
+									<p>A sequência para realização deste Projeto é a seguinte:</p>
+									<ul>
+										<li>Ler o Capítulo 1 da Ref. [1]: A. Taflove e S. C. Hagness. Computational Electrodynamics:The Finite-Difference Time-Domain Method. Norwood: Artech House, 2a. ed., 2000;</li>
+										<li>Ler o Capítulo 2 da Ref. [1]: A. Taflove e S. C. Hagness. Computational Electrodynamics:The Finite-Difference Time-Domain Method. Norwood: Artech House, 2a. ed., 2000;</li>
+										<li>Fazer os seguintes problemas de fim de capítulo da Ref. [1]: 2.4 a 2.11, e</li>
+										<li>Fazer o relatório pertinente, no padrão IEEE, conforme especificações já descritas anteriormente.</li>
+									</ul>
+
+									<br>
+									<h3><b>Notas do projeto:</b></h3>
+									<p>Os algortimos foram desenvolvidos em JavaScript. A linguagem JS tem como característica rodar programas localmente - do lado do cliente. Assim sendo, o JavaScript fornece às páginas web a possibilidade de programação, transformação e processamento de dados enviados e recebidos. Foi utilizado para criação dos gráficos o <a target="_blank" href="https://www.chartjs.org/">Chart.js</a>. O Chart.js é um framework JavaScript de código aberto mantido pela comunidade.</p>
+									<p>Os códigos de cada exercícos está localizado na pasta informada abaixo. Também foi criado um arquivo com funções que são usadas em diversos exercícios, por exemplo o algortimo FDTD.</p>
+									<div class="card-sub">
+										<br>
+										<i class="fas fa-home"></i> /src/js/<br>
+										<p style="padding-left: 50px;">
+											-- exer.2.4.js<br>
+											-- exer.2.5.js<br>
+											-- exer.2.6.js<br>
+											-- exer.2.7.js<br>
+											-- exer.2.8.js<br>
+											-- exer.2.9.js<br>
+											-- exer.2.10.js<br>
+											-- exer.2.11.js<br>
+											-- functions.js<br>
+										</p>
+									</div>
+									<p>Os resultados dos códigos estão apresentados acessando os links do lado.</p>
+									<br>
+									<h3><b>Referências:</b></h3>
+									<p>[1] A. Taflove e S. C. Hagness. Computational Electrodynamics: The Finite-Difference Time-Domain Method. Norwood: Artech House, 2a. ed., 2000.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- ///////-->
+				<div class="page-inner mt--5 box-cont" id="c-2-4">
+					<div class="row mt--2">
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="card-title">Exercico 2.4</div>
+									<div class="card-category">Variação da velocidade de fase numérica normalizada vp / c e atenuação por célula da grade &alpha;&Delta;x em função da densidade de amostragem da grade (15 &le; N&lambda; &le; 10) para um fator de estabilidade de Courant S = &radic;2.</div>
+									<div class="row py-3">
+										<canvas id="exer-2-4"></canvas>				
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- ///////-->
+				<div class="page-inner mt--5 box-cont" id="c-2-5">
+					<div class="row mt--2">
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="card-title">Exercico 2.5</div>
+									<div class="card-category">Erro percentual de velocidade de fase numérica em relação à velocidade da luz no espaço livre em função da densidade de amostragem da grade 3 &le; N&lambda; &le; 80) para um fator de estabilidade S de Courant S = 0,5.</div>
+									<div class="row py-3">
+										<canvas id="exer-2-5"></canvas>				
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Grafico 2.6 ///////-->
+				<div class="page-inner mt--5 box-cont" id="c-2-6">
+					<div class="row mt--2">
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="card-title">Exercico 2.6</div>
+									<div class="card-category">Erro percentual de velocidade de fase numérica em relação à velocidade da luz no espaço livre em função da densidade de amostragem da grade 3 &le; N&lambda; &le; 80) para um fator de estabilidade S de Courant S = &radic;2.</div>
+									<div class="row py-3">
+										<canvas id="exer-2-6"></canvas>				
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Grafico 2.7 ///////-->
+				<div class="page-inner mt--5 box-cont" id="c-2-7">
+					<div class="row mt--2">
+
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="card-title">Exercico 2.7</div>
+									<div class="card-category">Efeito da dispersão numérica em um pulso retangular que se propaga no espaço livre para três diferentes fatores de estabilidade de Courant: S = 1 (&Delta;t é igual ao tempo mágico), S = 0,99 (&Delta;t apenas 1% abaixo do tempo mágico) e S = 0,5 (&Delta;t 50% abaixo do tempo mágico).</div>
+									<div class="row py-3">
+										<canvas id="exer-2-7-a"></canvas>				
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="row py-3">
+										<canvas id="exer-2-7-b"></canvas>				
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- Grafico 2.8 ///////-->
+				<div class="page-inner mt--5 box-cont" id="c-2-8">
+					<div class="row mt--2">
+
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="card-title">Exercico 2.8</div>
+									<div class="card-category">Efeito da dispersão numérica em um pulso gaussiano que se propaga no espaço livre para três fatores diferentes de estabilidade de Courant: S = 1 (&Delta;t igual ao passo do tempo mágico), S = 0,99 (&Delta;t apenas 1% abaixo do passo do tempo mágico) e S = 0,5 (&Delta;t 50% abaixo do tempo mágico).</div>
+									<div class="row py-3">
+										<canvas id="exer-2-8-a"></canvas>				
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="row py-3">
+										<canvas id="exer-2-8-b"></canvas>				
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<!-- Grafico 2.9 ///////-->
+				<div class="page-inner mt--5 box-cont" id="c-2-9">
+					<div class="row mt--2">
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="card-title">Exercico 2.9</div>
+									<div class="card-category">Exemplo da reflexão e transmissão calculadas de um pulso gaussiano em uma interface entre espaço livre e um meio espaço sem perda de material tendo vp = c / 4.</div>
+									<div class="row py-3">
+										<canvas id="exer-2-9"></canvas>				
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Grafico 2.10 ///////-->
+				<div class="page-inner mt--5 box-cont" id="c-2-10">
+					<div class="row mt--2">
+
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="card-title">Exercico 2.10</div>
+									<div class="card-category">O início da instabilidade numérica de um pulso gaussiano que se propaga no espaço livre. O fator de estabilidade de Courant é S = 1.0005 em cada ponto da grade.</div>
+									<div class="row py-3">
+										<canvas id="exer-2-10-a"></canvas>				
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="row py-3">
+										<canvas id="exer-2-10-b"></canvas>				
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<!-- Grafico 2.11 ///////-->
+				<div class="page-inner mt--5 box-cont" id="c-2-11">
+					<div class="row mt--2">
+
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="card-title">Exercico 2.11</div>
+									<div class="card-category">O início da instabilidade numérica de um pulso gaussiano que se propaga no espaço livre. Diferentemente do Exercício 2.10, o fator de estabilidade de Courant é S = 1 em todos os pontos da grade, mas i = 90, onde S = 1.075.</div>
+									<div class="row py-3">
+										<canvas id="exer-2-11-a"></canvas>				
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="card full-height">
+								<div class="card-body">
+									<div class="row py-3">
+										<canvas id="exer-2-11-b"></canvas>				
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				<!-- ///////-->
+
+			</div>
+		</div>
+
+	</div>
+	<!--   Bibiotecas JS  -->
+	<script src="libs/assets/js/core/jquery.3.2.1.min.js"></script>
+	<script src="libs/assets/js/core/popper.min.js"></script>
+	<script src="libs/assets/js/core/bootstrap.min.js"></script>
+	<script src="libs/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script src="libs/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+	<script src="libs/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+	<script src="libs/assets/js/atlantis.min.js"></script>
+
 	<script src="libs/js/utils.js"></script>
 	<script src="libs/js/Chart.js"></script>
 	<script src="libs/js/chartjs-plugin-annotation.min.js"></script>
 	<script src="libs/js/math.min.js"></script>
 
+	<!-- Exercicios -->
 	<script src="src/js/functions.js"></script>
 	<script src="src/js/exer.2.4.js"></script>
 	<script src="src/js/exer.2.5.js"></script>
@@ -21,22 +406,19 @@
 	<script src="src/js/exer.2.9.js"></script>
 	<script src="src/js/exer.2.10.js"></script>
 	<script src="src/js/exer.2.11.js"></script>
+
+	<!-- Interno -->
 	<script src="src/js/index.js"></script>
-</head>
-<body>
-	<div>
-		<canvas id="exer-2-4"></canvas>
-		<canvas id="exer-2-5"></canvas>
-		<canvas id="exer-2-6"></canvas>
-		<canvas id="exer-2-7-a"></canvas>
-		<canvas id="exer-2-7-b"></canvas>
-		<canvas id="exer-2-8-a"></canvas>
-		<canvas id="exer-2-8-b"></canvas>
-		<canvas id="exer-2-9"></canvas>
-		<canvas id="exer-2-10-a"></canvas>
-		<canvas id="exer-2-10-b"></canvas>
-		<canvas id="exer-2-11-a"></canvas>
-		<canvas id="exer-2-11-b"></canvas>
-	</div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.link-content').on('click', function(event) {
+				event.preventDefault();
+				href = $(this).attr("href");
+				href = href.substr(1);
+		    	$(".box-cont").fadeOut(0);
+				$("#"+href).fadeIn(0);
+			});
+		});
+	</script>
 </body>
 </html>

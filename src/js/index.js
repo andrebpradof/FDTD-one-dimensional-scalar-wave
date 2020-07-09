@@ -1,3 +1,4 @@
+// Divide um intevalo
 function makeArr(startValue, stopValue, cardinality) {
     var arr = [];
     var aux;
@@ -9,7 +10,7 @@ function makeArr(startValue, stopValue, cardinality) {
     
       return arr;
 }
-
+// Configuracoes para gerar grafico com o Chart.js 
 function gera_grafico(titulo,titulo_x, n_funcoes, dados_x, dados_y,zero, elemento_id, scale_on, dual_line, line_v){
 
     if(line_v){
@@ -165,12 +166,6 @@ function gera_grafico(titulo,titulo_x, n_funcoes, dados_x, dados_y,zero, element
                     display: true,
 					ticks: {
                         maxTicksLimit: 20,
-                        // callback: function (value, index, values) {
-                        //     if(Number.isInteger(value)){
-                        //         return value;
-                        //     }
-                        //     return "";
-                        // }
                     },
 					scaleLabel: {
 						display: true,
@@ -186,14 +181,14 @@ function gera_grafico(titulo,titulo_x, n_funcoes, dados_x, dados_y,zero, element
 	window.myLine = new Chart(ctx, config);
 }
 
-
+// Executa os graficos depois que a página carregar
 window.onload = function() {
-    exer_2_4(1/math.sqrt(2), 100);
-    exer_2_5(1/2, 100);
-    exer_2_6(1/math.sqrt(2), 100);
-    exer_2_7();
-    exer_2_8();
-    exer_2_9();
-    exer_2_10();
-    exer_2_11();
+    exer_2_4();  //Exercicio 2.4
+    exer_2_5();  //Exercicio 2.5
+    exer_2_6();  //Exercicio 2.6
+    exer_2_7();  //Exercicio 2.7
+    exer_2_8();  //Exercicio 2.8
+    exer_2_9();  //Exercicio 2.9
+    exer_2_10(); //Exercicio 2.10    
+    exer_2_11(); //Exercicio 2.11
 };

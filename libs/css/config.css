@@ -1,0 +1,15 @@
+.box-cont{
+    display:none;
+}
+
+.box-ativo{
+    display:block;
+}
+canvas {
+    width: 95% !important;
+    margin: auto;
+    display: table;
+}
+.logo-header .nav-toggle{
+    padding: 18px 0 !important;
+}

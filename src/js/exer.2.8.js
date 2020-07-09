@@ -1,4 +1,6 @@
 function exer_2_8(){
+
+    // Fatores de estabilidade Courant
     var S = [1 , 0.99, 0.5];
 
     var S_0 = function(i){
@@ -14,14 +16,17 @@ function exer_2_8(){
     }
 
     var I = 200;
+    
     var N_0 = parseInt(I/S[0]);
     var N_1 = parseInt(I/S[1]);
     var N_2 = parseInt(I/S[2]);
 
-    var u_0 = fdtd(S_0, I, N_0, f_gauss);
-    var u_1 = fdtd(S_1, I, N_1, f_gauss);
-    var u_2 = fdtd(S_2, I, N_2, f_gauss);
+    // Calculo FDTD para os fatores de estabilidade
+    var u_0 = fdtd(S_0, I, N_0, p_gauss);
+    var u_1 = fdtd(S_1, I, N_1, p_gauss);
+    var u_2 = fdtd(S_2, I, N_2, p_gauss);
 
+    // Configuracoes dos graficos
     var funcoes_a = [
         {
             nome: "S = "+S[0],
@@ -72,6 +77,7 @@ function exer_2_8(){
         }
     ];
 
+    // Configuracao do eixo x
     var nome_x = "Coordenada i da grade";
 
     var intervalo_x = [];
@@ -79,6 +85,7 @@ function exer_2_8(){
     for (let index = 0; index <= I; index++) {
         intervalo_x[index] = index;
     }
-    gera_grafico("Exercicio 2.8-a", nome_x, 2,intervalo_x, funcoes_a,false, "exer-2-8-a", true, false,false);
-    gera_grafico("Exercicio 2.8-b", nome_x, 2,intervalo_x, funcoes_b,false, "exer-2-8-b", true, false,);
+    // Gerar o grafico
+    gera_grafico("(a)", nome_x, 2,intervalo_x, funcoes_a,false, "exer-2-8-a", true, false,false);
+    gera_grafico("(b)", nome_x, 2,intervalo_x, funcoes_b,false, "exer-2-8-b", true, false,);
 }
