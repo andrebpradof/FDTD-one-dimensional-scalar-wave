@@ -15,8 +15,8 @@ function exer_2_9(){
         {
             nome: "",
             nome_eixo: "Função da onda u(i)",
-            cor: window.chartColors.red,
-            borda: window.chartColors.red,
+            cor: "#d11507",
+            borda: "#d11507",
             dados: u[250],
             tracado: [0,0],
             limites:[-0.8 ,0.5],

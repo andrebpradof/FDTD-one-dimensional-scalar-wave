@@ -6,8 +6,8 @@ function exer_2_5(S, n) {
         {
             nome: "S = "+S,
             nome_eixo: "Erro da Velocidade de Fase (%)",
-            cor: "#008000",
-            borda: "#008000",
+            cor: "#009900",
+            borda: "#009900",
             dados: Vp,
             tracado: [0,0],
             limites:[10**-2 ,10**2],

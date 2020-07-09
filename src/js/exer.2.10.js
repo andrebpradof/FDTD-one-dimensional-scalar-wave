@@ -30,8 +30,8 @@ function exer_2_10(){
         {
             nome: "n = 210",
             nome_eixo: "Função da onda",
-            cor: window.chartColors.red,
-            borda: window.chartColors.red,
+            cor: "#d11507",
+            borda: "#d11507",
             dados: u[210],
             tracado: [2,2],
             limites:[-0.3 ,1.2],
@@ -41,8 +41,8 @@ function exer_2_10(){
         {
             nome: "n = 220",
             nome_eixo: "Função da onda",
-            cor: window.chartColors.green,
-            borda: window.chartColors.green,
+            cor: "#009900",
+            borda: "#009900",
             dados: u[220],
             tracado: [4,4],
             limites:[-0.3 ,1.2],
@@ -66,8 +66,8 @@ function exer_2_10(){
         {
             nome: "n = 210",
             nome_eixo: "Função da onda",
-            cor: window.chartColors.red,
-            borda: window.chartColors.red,
+            cor: "#d11507",
+            borda: "#d11507",
             dados: u[210].slice(0, 21),
             tracado: [2,2],
             posicao: 'left',
@@ -76,8 +76,8 @@ function exer_2_10(){
         {
             nome: "n = 220",
             nome_eixo: "Função da onda",
-            cor: window.chartColors.green,
-            borda: window.chartColors.green,
+            cor: "#009900",
+            borda: "#009900",
             dados: u[220].slice(0, 21),
             tracado: [4,4],
             posicao: 'left',

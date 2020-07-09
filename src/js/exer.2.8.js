@@ -37,8 +37,8 @@ function exer_2_8(){
         {
             nome: "S = "+S[1],
             nome_eixo: "",
-            cor: window.chartColors.red,
-            borda: window.chartColors.red,
+            cor: "#d11507",
+            borda: "#d11507",
             dados: u_1[parseInt(150/S[1])],
             tracado: [5,5],
             limites:[-0.2 ,1.2],
@@ -62,8 +62,8 @@ function exer_2_8(){
         {
             nome: "S = "+S[2],
             nome_eixo: "",
-            cor: window.chartColors.red,
-            borda: window.chartColors.red,
+            cor: "#d11507",
+            borda: "#d11507",
             dados: u_2[parseInt(150/S[2])],
             tracado: [5,5],
             limites:[-0.2 ,1.2],

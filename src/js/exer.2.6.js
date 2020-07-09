@@ -6,8 +6,8 @@ function exer_2_6(S, n) {
         {
             nome: "S = "+parseFloat(S).toFixed(2),
             nome_eixo: "Erro da Velocidade de Fase (%)",
-            cor: window.chartColors.green,
-            borda: window.chartColors.green,
+            cor: "#d11507",
+            borda: "#d11507",
             dados: Vp,
             tracado: [0,0],
             limites:[10**-2 ,10**2],
