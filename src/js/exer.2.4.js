@@ -2,20 +2,11 @@ function exer_2_4(S, n) {
 	var k = 0;
 	var tau = 0;
 	var N = makeArr(1, 10, n);
-	var at = Array.apply(null, Array(n)).map(Number.prototype.valueOf, 0);
-	var Vp = Array.apply(null, Array(n)).map(Number.prototype.valueOf, 0);
+    var dados = calcVelocidadeAtenuacao(n,S,N);
 
-	for (var i = 0; i <= n; i++) {
-		if (N[i] <= N_transition(S)) {
-			k = math.pi;
-			tau = zeta(N[i], S);
-			at[i] = -math.log(-tau - math.sqrt((tau ** 2) - 1));
-		}
-		else {
-			k = math.acos(zeta(N[i], S))
-		}
-		Vp[i] = (2 * math.pi) / (N[i] * k);
-	}
+    var Vp = dados[0];
+    var at = dados[1];
+
 
     var funcoes = [
         {
@@ -43,6 +34,6 @@ function exer_2_4(S, n) {
     ];
     var nome_x = "Densidade de amostragem da grade (pontos por comprimento de onda do espaço livre)";
 
-    gera_grafico("Exercicio 2.4", nome_x, 2, N, funcoes,false, "exer-2-4", false, false);
+    gera_grafico("Exercicio 2.4", nome_x, 2, N, funcoes,false, "exer-2-4", false, false,false);
 
 }

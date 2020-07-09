@@ -1,103 +1,86 @@
-function exer_2_7(n){
+function exer_2_7() {
 
-    var S = [];
-    S[0] = 0.7;
-    S[1] = 0.8;
-    S[2] = 0.9;
-    S[3] = 0.99;
+    var S = [1 , 0.99, 0.5];
 
-    var Vp = [];
-    var at = [];
-
-    var N = makeArr(1, 10, n);
-
-    for(var i = 0; i < 4; i++){
-        var dados = calc_parte1(n,S[i]);
-        Vp[i] = dados[0];
-        at[i] = dados[1];
+    var S_0 = function(i){
+        return 1;
     }
 
-    var funcoes = [
+    var S_1 = function(i){
+        return 0.99;
+    }
+
+    var S_2 = function(i){
+        return 0.5;
+    }
+
+    var I = 200;
+    var N_0 = parseInt(I/S[0]);
+    var N_1 = parseInt(I/S[1]);
+    var N_2 = parseInt(I/S[2]);
+
+    var u_0 = fdtd(S_0, I, N_0, v);
+    var u_1 = fdtd(S_1, I, N_1, v);
+    var u_2 = fdtd(S_2, I, N_2, v)
+    
+    var funcoes_a = [
         {
-            nome: "S = 0.7",
-            nome_eixo: "Constante de atenuação (nepers / célula da grade)",
-            cor: "#7a1b0c",
-            borda: "#7a1b0c",
-            dados: at[0],
-            tracado: [5,5],
-            limites:[0 ,6],
-            posicao: 'left',
-            tipo: 'linear',
-            id: 'A'
-        },
-        {
-            nome: "S = 0.8",
-            cor: "#a51b0b",
-            borda: "#a51b0b",
-            dados: at[1],
-            tracado: [5,5],
-            tipo: 'linear',
-            id: 'A'
-        },
-        {
-            nome: "S = 0.9",
+            nome: "S = "+S[0],
+            nome_eixo: "Função da onda u(i)",
             cor: "#d11507",
             borda: "#d11507",
-            dados: at[2],
-            tracado: [5,5],
+            dados: u_0[parseInt(150/S[0])],
+            tracado: [4,4],
+            limites:[-0.5 ,1.5],
+            posicao: 'left',
             tipo: 'linear',
-            id: 'A'
         },
         {
-            nome: "S = 0.99",
-            cor: "#ff0000",
-            borda: "#ff0000",
-            dados: at[3],
-            tracado: [5,5],
-            tipo: 'linear',
-            id: 'A'
-        },
-        {
-            nome: "S = 0.7",
-            nome_eixo: "Velocidade de fase numérica (normalizada para c)",
-            cor: "#214077",
-            borda: "#214077",
-            dados: Vp[0],
-            tracado: [5,0],
-            limites: [0, 2],
+            nome: "S = "+S[1],
+            nome_eixo: "",
+            cor:"#007bf5",
+            borda: "#007bf5",
+            dados: u_1[parseInt(150/S[1])],
+            tracado: [0,0],
+            limites:[-0.5 ,1.5],
             posicao: 'right',
             tipo: 'linear',
-            id: 'B'
-        },
-        {
-            nome: "S = 0.8",
-            cor: "#2156a2",
-            borda: "#2156a2",
-            dados: Vp[1],
-            tracado: [5,0],
-            tipo: 'linear',
-            id: 'B'
-        },
-        {
-            nome: "S = 0.9",
-            cor: "#1b6cd0",
-            borda: "#1b6cd0",
-            dados: Vp[2],
-            tracado: [5,0],
-            tipo: 'linear',
-            id: 'B'
-        },
-        {
-            nome: "S = 0.99",
-            cor: "#0083ff",
-            borda: "#0083ff",
-            dados: Vp[3],
-            tracado: [5,0],
-            tipo: 'linear',
-            id: 'B'
         }
     ];
-    var nome_x = "Densidade de amostragem da grade (pontos por comprimento de onda do espaço livre)";
 
-    gera_grafico("Exercicio 2.7a", nome_x, 8, N, funcoes,false, "exer-2-7-a", false, true);
+    var funcoes_b = [
+        {
+            nome: "S = "+S[0],
+            nome_eixo: "Função da onda u(i)",
+            cor: "#d11507",
+            borda: "#d11507",
+            dados: u_0[parseInt(150/S[0])],
+            tracado: [4,4],
+            limites:[-0.5 ,1.5],
+            posicao: 'left',
+            tipo: 'linear',
+        },
+        {
+            nome: "S = "+S[2],
+            nome_eixo: "",
+            cor:"#007bf5",
+            borda: "#007bf5",
+            dados: u_2[parseInt(150/S[2])],
+            tracado: [0,0],
+            limites:[-0.5 ,1.5],
+            posicao: 'right',
+            tipo: 'linear',
+        }
+    ];
+
+    var nome_x = "Coordenada i da grade";
+
+    var intervalo_x = [];
+
+    for (let index = 0; index <= I; index++) {
+        intervalo_x[index] = index;
+    }
+
+    gera_grafico("Exercicio 2.7-a", nome_x, 2,intervalo_x, funcoes_a,false, "exer-2-7-a", true, false,false);
+    gera_grafico("Exercicio 2.7-b", nome_x, 2,intervalo_x, funcoes_b,false, "exer-2-7-b", true, false,false);
 }

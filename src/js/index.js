@@ -10,8 +10,24 @@ function makeArr(startValue, stopValue, cardinality) {
       return arr;
 }
 
-function gera_grafico(titulo,titulo_x, n_funcoes, dados_x, dados_y,zero, elemento_id, scale_on, dual_line){
+function gera_grafico(titulo,titulo_x, n_funcoes, dados_x, dados_y,zero, elemento_id, scale_on, dual_line, line_v){
 
+    if(line_v){
+        linha_vertical = [{
+            drawTime: "afterDatasetsDraw",
+            id: "hline",
+            type: "line",
+            mode: "vertical",
+            scaleID: "x-axis-0",
+            value:  dados_y[0]['linha_v'],
+            borderColor: "black",
+            borderWidth: 3,
+            borderDash: [3,3]
+        }]
+    }
+    else{
+        linha_vertical = [];
+    }
     var dados = [];
     if(scale_on){
         var yAxes_dados;
@@ -142,34 +158,19 @@ function gera_grafico(titulo,titulo_x, n_funcoes, dados_x, dados_y,zero, element
                 }
             },
             annotation: {
-                annotations: [
-                  {
-                    drawTime: "afterDatasetsDraw",
-                    type: "line",
-                    mode: "vertical",
-                    value: 50,
-                    borderWidth: 5,
-                    borderColor: "red",
-                    label: {
-                      content: "TODAY",
-                      enabled: true,
-                      position: "top"
-                    }
-                  }
-                ]
+                annotations: linha_vertical,
             },
-
 			scales: {
 				xAxes: [{
                     display: true,
 					ticks: {
                         maxTicksLimit: 20,
-                        callback: function (value, index, values) {
-                            if(Number.isInteger(value)){
-                                return value;
-                            }
-                            return "";
-                        }
+                        // callback: function (value, index, values) {
+                        //     if(Number.isInteger(value)){
+                        //         return value;
+                        //     }
+                        //     return "";
+                        // }
                     },
 					scaleLabel: {
 						display: true,
@@ -190,9 +191,9 @@ window.onload = function() {
     exer_2_4(1/math.sqrt(2), 100);
     exer_2_5(1/2, 100);
     exer_2_6(1/math.sqrt(2), 100);
-    exer_2_7(100);
-    exer_2_8(0.5,1,v);
-    exer_2_9(0.5,1,f_gauss);
+    exer_2_7();
+    exer_2_8();
+    exer_2_9();
     exer_2_10();
     exer_2_11();
 };

@@ -6,10 +6,9 @@ function zeta(N, S){
     return 1+(1/(S**2))*(math.cos((2*math.pi*S)/N)-1)
 }
 
-function calc_parte1(n, S){
+function calcVelocidadeAtenuacao(n, S, N){
     var k = 0;
 	var tau = 0;
-	var N = makeArr(1, 10, n);
 	var at = Array.apply(null, Array(n)).map(Number.prototype.valueOf, 0);
 	var Vp = Array.apply(null, Array(n)).map(Number.prototype.valueOf, 0);
 
@@ -30,6 +29,21 @@ function calc_parte1(n, S){
     dados[1] = at;
     
     return dados;
+}
+
+function calcVelocidadeErro(n, S, N){
+    var Vp = Array.apply(null, Array(N.length)).map(Number.prototype.valueOf, 0); 
+    
+    var k = 0;
+    for(var i=0; i <= N.length-1; i++){
+        k = math.acos(zeta(N[i], S));
+        Vp[i] = (2*math.pi)/(N[i]*k);
+    }
+    for(var i=0; i <= N.length-1; i++){
+        Vp[i] = 100*(1-Vp[i]);
+    }
+    
+    return Vp;
 }
 
 function fdtd(S, I, N, s){

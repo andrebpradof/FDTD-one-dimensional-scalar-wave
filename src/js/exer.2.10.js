@@ -1,37 +1,102 @@
 function exer_2_10(){
-    var S = function (i) {
-        if(i < 140)
-            return 1;
-        else 
-            return 0.25;
+    var S = function(i){
+        return 1.0005;
     }
 
-    I = 200;
-    N = 400;
+    var I = 220;
+    var N = 400;
 
-    var u = fdtd(S,I,N,f_gauss);
+    var s = function(n){
+        if(n > 120/1.0005)
+            return 0;
+        else
+            return math.exp(-((((n-60)/(20))**2)));
+    }
 
-    var funcoes = [
+    u = fdtd(S,I,N,s);
+
+    var funcoes_a = [
         {
-            nome: "ARRUMAR",
+            nome: "n = 200",
+            nome_eixo: "Função da onda u(i)",
+            cor: window.chartColors.blue,
+            borda: window.chartColors.blue,
+            dados: u[200],
+            tracado: [0,0],
+            limites:[-0.3 ,1.2],
+            posicao: 'left',
+            tipo: 'linear',
+        },
+        {
+            nome: "n = 210",
             nome_eixo: "Função da onda",
             cor: window.chartColors.red,
             borda: window.chartColors.red,
-            dados: u[250],
-            tracado: [0,0],
-            limites:[-0.8 ,0.5],
+            dados: u[210],
+            tracado: [2,2],
+            limites:[-0.3 ,1.2],
+            posicao: 'left',
+            tipo: 'linear',
+        },
+        {
+            nome: "n = 220",
+            nome_eixo: "Função da onda",
+            cor: window.chartColors.green,
+            borda: window.chartColors.green,
+            dados: u[220],
+            tracado: [4,4],
+            limites:[-0.3 ,1.2],
             posicao: 'left',
             tipo: 'linear',
         }
     ];
 
-    var nome_x = "";
+    var funcoes_b = [
+        {
+            nome: "n = 200",
+            nome_eixo: "Função da onda u(i)",
+            cor: window.chartColors.blue,
+            borda: window.chartColors.blue,
+            dados: u[200].slice(0, 21),
+            tracado: [0,0],
+            limites:[-0.04 ,0.04],
+            posicao: 'left',
+            tipo: 'linear',
+        },
+        {
+            nome: "n = 210",
+            nome_eixo: "Função da onda",
+            cor: window.chartColors.red,
+            borda: window.chartColors.red,
+            dados: u[210].slice(0, 21),
+            tracado: [2,2],
+            posicao: 'left',
+            tipo: 'linear',
+        },
+        {
+            nome: "n = 220",
+            nome_eixo: "Função da onda",
+            cor: window.chartColors.green,
+            borda: window.chartColors.green,
+            dados: u[220].slice(0, 21),
+            tracado: [4,4],
+            posicao: 'left',
+            tipo: 'linear',
+        }
+    ];
 
-    var intervalo_x = [];
+    var nome_x = "Coordenada i da grade";
+
+    var intervalo_x_a = [];
+    var intervalo_x_b = [];
 
     for (let index = 0; index <= I; index++) {
-        intervalo_x[index] = index;
+        intervalo_x_a[index] = index;
     }
-    gera_grafico("Exercicio 2.10", nome_x, 1,intervalo_x, funcoes,false, "exer-2-10", false, false);
+    for (let index = 0; index <= 20; index++) {
+        intervalo_x_b[index] = index;
+    }
+    gera_grafico("Exercicio 2.10", nome_x, 3,intervalo_x_a, funcoes_a,false, "exer-2-10-a", true, false,false);
+    gera_grafico("Exercicio 2.10", nome_x, 3,intervalo_x_b, funcoes_b,false, "exer-2-10-b", true, false,false);
 
 }
